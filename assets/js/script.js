@@ -57,9 +57,11 @@ function dateFormatted(date) {
 function storeSearchHistory(city) {
   if (JSON.parse(localStorage.getItem("cities")) !== null) {
     cities = JSON.parse(localStorage.getItem("cities"));
-    cities = cities.concat(city);
+    console.log(cities);
+    cities.push(city);
   } else {
-    cities = city;
+    cities = [];
+    cities.push(city);
   }
   console.log(cities);
   // for (i = 0; i < cities.length; i++) {
