@@ -14,8 +14,6 @@ if (localStorage.getItem("cities") !== null) {
   cities = JSON.parse(localStorage.getItem("cities"));
 }
 
-console.log(cities);
-
 function handleHistorySearch(event) {
   console.log(event.target.id);
   forcast(event.target.id);
