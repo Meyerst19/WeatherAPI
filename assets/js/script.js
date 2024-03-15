@@ -8,7 +8,7 @@ const dayThreeOfFive = document.querySelector("#fiveDayThree");
 const dayFourOfFive = document.querySelector("#fiveDayFour");
 const dayFiveOfFive = document.querySelector("#fiveDayFive");
 
-let cities = [];
+// let cities = [];
 
 if (localStorage.getItem("cities") !== null) {
   cities = JSON.parse(localStorage.getItem("cities"));
@@ -60,7 +60,7 @@ function storeSearchHistory(city) {
     console.log(cities);
     cities.push(city);
   } else {
-    cities = [];
+    const cities = [];
     cities.push(city);
   }
   console.log(cities);
