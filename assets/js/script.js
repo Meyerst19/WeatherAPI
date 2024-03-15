@@ -7,11 +7,11 @@ const dayTwoOfFive = document.querySelector("#fiveDayTwo");
 const dayThreeOfFive = document.querySelector("#fiveDayThree");
 const dayFourOfFive = document.querySelector("#fiveDayFour");
 const dayFiveOfFive = document.querySelector("#fiveDayFive");
+const cities = [];
 
-// let cities = [];
-
-if (localStorage.getItem("cities") !== null) {
-  cities = JSON.parse(localStorage.getItem("cities"));
+if (localStorage.getItem("cities") === typeof Array) {
+  const localArr = JSON.parse(localStorage.getItem("cities"));
+  cities.push(...localArr);
 }
 
 function handleHistorySearch(event) {
@@ -53,16 +53,17 @@ function dateFormatted(date) {
 }
 
 function storeSearchHistory(city) {
-  if (JSON.parse(localStorage.getItem("cities")) !== null) {
-    const cities = JSON.parse(localStorage.getItem("cities"));
+  const lscities = [];
+  if (JSON.parse(localStorage.getItem("cities")) === typeof Array) {
+    const localArr = JSON.parse(localStorage.getItem("cities"));
+    // lscities.push(city);
+    cities.push(...localArr);
     console.log(cities);
-    cities.push(city);
   } else {
-    const cities = [];
+    // lscities.push(city);
     cities.push(city);
     console.log(cities);
   }
-  console.log(cities);
   // for (i = 0; i < cities.length; i++) {
   //   const historyEl = document.createElement("button");
   //   historyEl.textContent = cities[i];
@@ -70,6 +71,7 @@ function storeSearchHistory(city) {
   //   searchHistoryEl.appendChild(historyEl);
   // }
 
+  console.log(cities);
   localStorage.setItem("cities", JSON.stringify(cities));
 }
 
